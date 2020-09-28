@@ -7,7 +7,7 @@ import "./index.scss";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/philosophiebakery">
     <App />
   </BrowserRouter>,
   document.getElementById("root")
