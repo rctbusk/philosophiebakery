@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/philosophiebakery/static/css/main.68f0a81a.chunk.css",
+    "main.js": "/philosophiebakery/static/js/main.d3e2a168.chunk.js",
+    "main.js.map": "/philosophiebakery/static/js/main.d3e2a168.chunk.js.map",
+    "runtime-main.js": "/philosophiebakery/static/js/runtime-main.5d154c07.js",
+    "runtime-main.js.map": "/philosophiebakery/static/js/runtime-main.5d154c07.js.map",
+    "static/js/2.b2ba9095.chunk.js": "/philosophiebakery/static/js/2.b2ba9095.chunk.js",
+    "static/js/2.b2ba9095.chunk.js.map": "/philosophiebakery/static/js/2.b2ba9095.chunk.js.map",
+    "index.html": "/philosophiebakery/index.html",
+    "precache-manifest.ea28aa77b7adfae768dc92f73bae7682.js": "/philosophiebakery/precache-manifest.ea28aa77b7adfae768dc92f73bae7682.js",
+    "service-worker.js": "/philosophiebakery/service-worker.js",
+    "static/css/main.68f0a81a.chunk.css.map": "/philosophiebakery/static/css/main.68f0a81a.chunk.css.map",
+    "static/js/2.b2ba9095.chunk.js.LICENSE": "/philosophiebakery/static/js/2.b2ba9095.chunk.js.LICENSE",
+    "static/media/index.css": "/philosophiebakery/static/media/NeutraText-Book.cf9277dc.otf",
+    "static/media/NeutraText-Book.ttf": "/philosophiebakery/static/media/NeutraText-Book.cc211c16.ttf",
+    "static/media/german_chocolate_pecan_cake.jpg": "/philosophiebakery/static/media/german_chocolate_pecan_cake.cfd27ddd.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d154c07.js",
+    "static/js/2.b2ba9095.chunk.js",
+    "static/css/main.68f0a81a.chunk.css",
+    "static/js/main.d3e2a168.chunk.js"
+  ]
+}
