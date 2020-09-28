@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c73eb91de49b7fdeb967bd51c1296870",
+    "revision": "776d3eefef6e39f0440fbf4969544044",
     "url": "/philosophiebakery/index.html"
   },
   {
-    "revision": "ca4e2b3b8f78fb3968c6",
+    "revision": "08ec5a76c39209e1121a",
     "url": "/philosophiebakery/static/css/main.68f0a81a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/philosophiebakery/static/js/2.b2ba9095.chunk.js.LICENSE"
   },
   {
-    "revision": "ca4e2b3b8f78fb3968c6",
-    "url": "/philosophiebakery/static/js/main.d3e2a168.chunk.js"
+    "revision": "08ec5a76c39209e1121a",
+    "url": "/philosophiebakery/static/js/main.0df80fce.chunk.js"
   },
   {
     "revision": "56c1221908438f7ae9b5",
