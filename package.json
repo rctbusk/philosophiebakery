@@ -2,7 +2,7 @@
   "name": "philosophiebakery",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rbusk.github.io/philosophiebakery",
+  "homepage": "https://rctbusk.github.io/philosophiebakery",
   "dependencies": {
     "@material-ui/core": "^4.8.0",
     "@material-ui/icons": "^4.5.1",
