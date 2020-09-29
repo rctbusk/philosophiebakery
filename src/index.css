@@ -12,3 +12,14 @@
   src: local("NeutraText-Bold"), local("NeutraText Bold"),
     url(./fonts/NeutraText-Bold.otf) format("opentype");
 }
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  background-color: #edeff2;
+  overflow: auto;
+}

@@ -43,11 +43,11 @@ const theme = createMuiTheme({
 
 export const App = () => {
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       <Header />
       <Toolbar />
       <ThemeProvider theme={theme}>
-        <Box p={10} bgcolor="secondary.main" height="100%">
+        <Box pt={2} pl={1} pr={1} bgcolor="secondary.main">
           <Switch>
             <Route path="/cookies">
               <Cookies />

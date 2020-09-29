@@ -1,7 +1,12 @@
 import React from "react";
 import { ImageGrid } from "../ImageGrid/ImageGrid";
-import { tileData } from "./TileData";
+import { imageData } from "./ImageData";
+import { Box } from "@material-ui/core";
 
 export const Home = () => {
-  return <ImageGrid tileData={tileData} />;
+  return (
+    <Box height="100%">
+      <ImageGrid items={imageData} />
+    </Box>
+  );
 };

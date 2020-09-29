@@ -1,10 +1,12 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import IconButton from "@material-ui/core/IconButton";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import {
+  CardMedia,
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  useMediaQuery,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     color: "white",
+  },
+  gridListTile: {
+    backgroundColor: "transparent",
+    borderRadius: "15px",
+    boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.3)",
   },
 }));
 
@@ -49,21 +56,50 @@ const useStyles = makeStyles((theme) => ({
  */
 export const ImageGrid = (props) => {
   const classes = useStyles();
-  const tileData = props.tileData || [];
+  const tileData = props.items || [];
+  const cellHeight = 200;
+
+  const theme = useTheme();
+  const isLargeWidth = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMediumWidth = useMediaQuery(theme.breakpoints.between("sm", "lg"));
+
+  const numberOfCols = React.useMemo(() => {
+    if (isLargeWidth) {
+      return 5;
+    } else if (isMediumWidth) {
+      return 3;
+    } else {
+      return 2;
+    }
+  }, [isLargeWidth, isMediumWidth]);
 
   return (
     <div className={classes.root}>
-      <GridList cellHeight={200} spacing={1} className={classes.gridList}>
-        {tileData.map((tile) => (
+      <GridList
+        cellHeight={cellHeight}
+        spacing={15}
+        cols={numberOfCols}
+        className={classes.gridList}
+      >
+        {tileData.map((tile, i) => (
           <GridListTile
-            key={tile.img}
+            key={tile.title}
             cols={tile.cols || 1}
             rows={tile.rows || 1}
+            classes={{ tile: classes.gridListTile }}
           >
-            <img
-              src={tile.img}
+            <CardMedia
+              component="img"
+              style={{
+                //paddingTop: "3px",
+                width: "100%",
+                //height: "100%",
+                objectFit: "scale-down",
+                //
+              }}
+              key={i}
+              image={tile.img}
               alt={tile.title}
-              style={{ objectFit: "scale-down" }}
             />
             <GridListTileBar
               title={tile.title}
