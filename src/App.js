@@ -10,32 +10,41 @@ import { Cakes } from "./components/Cakes/Cakes";
 import { Weddings } from "./components/Weddings/Weddings";
 import { ContactUs } from "./components/ContactUs/ContactUs";
 
-import NeutraTextBook from "./fonts/NeutraText-Book.ttf";
-
-const neutraTextBook = {
-  fontFamily: "NeutraTextBook",
-  fontStyle: "normal",
-  src: `
-    local('NeutraTextBook'),
-    local('NeutraTextBook'),
-    url(${NeutraTextBook}) format('ttf')
-  `,
-};
-
+const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#B4B4DA",
+      light: "#e6e6ff",
+      dark: "#8484a8",
     },
     secondary: {
-      main: "#edeff2",
+      main: "#d6d6d6",
+      light: "#ffffff",
+      dark: "#a5a5a5",
+    },
+    logo: {
+      main: "#e8e9eb",
+    },
+  },
+  typography: {
+    fontFamily: "NeutraText",
+  },
+  breakpoints: {
+    values: {
+      xs: 300,
+      sm: 600,
+      md: 900,
+      lg: 1280,
+      xl: 1920,
     },
   },
   overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        "@font-face": [neutraTextBook],
-        backgroundColor: "#edeff2",
+    MuiTypography: {
+      h4: {
+        [defaultTheme.breakpoints.down("md")]: {
+          fontSize: "1.5rem",
+        },
       },
     },
   },
@@ -43,11 +52,17 @@ const theme = createMuiTheme({
 
 export const App = () => {
   return (
-    <div>
-      <Header />
-      <Toolbar />
+    <div style={{ height: "100%" }}>
       <ThemeProvider theme={theme}>
-        <Box pt={2} pl={1} pr={1} bgcolor="secondary.main">
+        <Header />
+        <Box
+          mt={2}
+          mb={2}
+          pt="115px"
+          bgcolor="secondary.main"
+          height="100%"
+          overflow="visible"
+        >
           <Switch>
             <Route path="/cookies">
               <Cookies />
@@ -65,21 +80,6 @@ export const App = () => {
               <Home />
             </Route>
           </Switch>
-
-          {/* <Box
-          style={{
-            display: "flex",
-          }}
-          bgcolor="primary.main"
-        >
-          <img
-            src={Logo}
-            alt="Logo"
-            style={{
-              width: "250px",
-            }}
-          />
-        </Box> */}
         </Box>
       </ThemeProvider>
     </div>

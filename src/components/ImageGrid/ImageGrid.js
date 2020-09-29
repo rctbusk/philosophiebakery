@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "space-around",
-    overflow: "hidden",
   },
   gridList: {
     width: "100%",
@@ -26,38 +25,29 @@ const useStyles = makeStyles((theme) => ({
       "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
       "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
   },
-  icon: {
-    color: "white",
+  img: {
+    width: "100%",
+    [theme.breakpoints.down("sm")]: {
+      height: "100%",
+    },
   },
   gridListTile: {
+    height: "100%",
     backgroundColor: "transparent",
-    borderRadius: "15px",
-    boxShadow: "3px 3px 5px rgba(0, 0, 0, 0.3)",
+    borderRadius: "10px",
+    boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.4)",
   },
 }));
 
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     author: 'author',
- *     featured: true,
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
 export const ImageGrid = (props) => {
   const classes = useStyles();
-  const tileData = props.items || [];
-  const cellHeight = 200;
+  const {
+    largeColumns = 5,
+    mediumColumns = 4,
+    smallColumns = 2,
+    items: tileData = [],
+    cellHeight = 200,
+  } = props;
 
   const theme = useTheme();
   const isLargeWidth = useMediaQuery(theme.breakpoints.up("lg"));
@@ -65,13 +55,13 @@ export const ImageGrid = (props) => {
 
   const numberOfCols = React.useMemo(() => {
     if (isLargeWidth) {
-      return 5;
+      return largeColumns;
     } else if (isMediumWidth) {
-      return 3;
+      return mediumColumns;
     } else {
-      return 2;
+      return smallColumns;
     }
-  }, [isLargeWidth, isMediumWidth]);
+  }, [isLargeWidth, isMediumWidth, largeColumns, mediumColumns, smallColumns]);
 
   return (
     <div className={classes.root}>
@@ -84,35 +74,26 @@ export const ImageGrid = (props) => {
         {tileData.map((tile, i) => (
           <GridListTile
             key={tile.title}
-            cols={tile.cols || 1}
-            rows={tile.rows || 1}
+            cols={
+              isLargeWidth && tile.largeColumns
+                ? tile.largeColumns
+                : tile.cols || 1
+            }
+            rows={
+              isLargeWidth && tile.largeRows ? tile.largeRows : tile.rows || 1
+            }
             classes={{ tile: classes.gridListTile }}
           >
             <CardMedia
               component="img"
-              style={{
-                //paddingTop: "3px",
-                width: "100%",
-                //height: "100%",
-                objectFit: "scale-down",
-                //
-              }}
+              classes={{ root: classes.img }}
               key={i}
-              image={tile.img}
+              image={isLargeWidth && tile.largeImg ? tile.largeImg : tile.img}
               alt={tile.title}
             />
             <GridListTileBar
               title={tile.title}
               titlePosition="top"
-              // actionIcon={
-              //   <IconButton
-              //     aria-label={`star ${tile.title}`}
-              //     className={classes.icon}
-              //   >
-              //     <StarBorderIcon />
-              //   </IconButton>
-              // }
-              // actionPosition="left"
               className={classes.titleBar}
             />
           </GridListTile>

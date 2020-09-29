@@ -1,7 +1,6 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import {
   AppBar,
   Toolbar,
@@ -12,52 +11,40 @@ import {
   Hidden,
   Menu,
   MenuItem,
-  ThemeProvider,
+  Box,
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import NeutraTextBook from "../../fonts/NeutraText-Book.ttf";
-
-const neutraTextBook = {
-  fontFamily: "NeutraTextBook",
-  fontStyle: "normal",
-  src: `
-      local('NeutraTextBook'),
-      local('NeutraTextBook'),
-      url(${NeutraTextBook}) format('ttf')
-    `,
-};
+import CakeLogo from "../../images/bakery_cake_logo.png";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
+  menu: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "5px",
+    height: "100px",
   },
-  title: {
-    flexGrow: 1,
+  logo: {
+    backgroundColor: "#e8e9eb",
   },
-  menuTabRoot: {
+  logoText: {
+    textTransform: "uppercase",
+  },
+  menuTab: {
     minWidth: "0px",
     marginRight: "10px",
+    fontSize: "1.3rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
+  },
+  menuItem: {
+    minWidth: "0px",
+    marginRight: "10px",
+    fontSize: "20px",
   },
 }));
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#B4B4DA",
-    },
-    secondary: {
-      main: "#440044",
-    },
-  },
-  overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        "@font-face": [neutraTextBook],
-      },
-    },
-  },
-});
 
 const options = [
   { path: "/", title: "Home" },
@@ -86,67 +73,84 @@ export const Header = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
+    <AppBar>
+      <Toolbar classes={{ root: classes.menu }}>
+        <Box
+          display="flex"
+          classes={{ root: classes.logo }}
+          justifyContent="center"
+          alignItems="center"
+          height="150px"
+          width="150px"
+          borderRadius="50%"
+          borderColor="primary.dark"
+          border={1}
+        >
+          <img
+            src={CakeLogo}
+            alt="Philosophie Bakery"
+            style={{
+              height: "100px",
+              objectFit: "scaled-down",
+            }}
+          />
+        </Box>
+        <Hidden xsDown={true}>
+          <Typography variant="h4" classes={{ root: classes.logoText }}>
             Philosophie Bakery
           </Typography>
-          <Hidden smDown={true}>
-            <Tabs
-              value={selectedTab}
-              onChange={(event, value) => {
-                setSelectedTab(value);
-              }}
-            >
-              {options.map((option) => {
-                return (
-                  <Tab
-                    to={option.path}
-                    value={option.path}
-                    component={Link}
-                    label={option.title}
-                    classes={{ root: classes.menuTabRoot }}
-                  />
-                );
-              })}
-            </Tabs>
-          </Hidden>
-          <Hidden mdUp={true}>
-            <IconButton
-              color="secondary"
-              aria-label="add an alarm"
-              onClick={handleClick}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              MenuListProps={{ style: { padding: 0 } }}
-            >
-              {options.map((option) => {
-                return (
-                  <MenuItem
-                    component={Link}
-                    to={option.path}
-                    classes={{ root: classes.MuiMenuItem }}
-                    onClick={() => {
-                      setSelectedTab(option.path);
-                      handleClose();
-                    }}
-                  >
-                    {option.title}
-                  </MenuItem>
-                );
-              })}
-            </Menu>
-          </Hidden>
-        </Toolbar>
-      </AppBar>
-    </ThemeProvider>
+        </Hidden>
+
+        <Hidden smDown={true}>
+          <Tabs
+            value={selectedTab}
+            onChange={(event, value) => {
+              setSelectedTab(value);
+            }}
+          >
+            {options.map((option) => {
+              return (
+                <Tab
+                  to={option.path}
+                  value={option.path}
+                  component={Link}
+                  label={option.title}
+                  classes={{ root: classes.menuTab }}
+                />
+              );
+            })}
+          </Tabs>
+        </Hidden>
+        <Hidden mdUp={true}>
+          <IconButton color="secondary" onClick={handleClick}>
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            MenuListProps={{ style: { padding: 0 } }}
+          >
+            {options.map((option) => {
+              return (
+                <MenuItem
+                  component={Link}
+                  to={option.path}
+                  classes={{ root: classes.menuItem }}
+                  onClick={() => {
+                    setSelectedTab(option.path);
+                    handleClose();
+                  }}
+                >
+                  {option.title}
+                </MenuItem>
+              );
+            })}
+          </Menu>
+        </Hidden>
+      </Toolbar>
+    </AppBar>
   );
 };
