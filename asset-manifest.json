@@ -1,32 +1,32 @@
 {
   "files": {
-    "main.css": "/philosophiebakery/static/css/main.15dd56cc.chunk.css",
-    "main.js": "/philosophiebakery/static/js/main.fc19533a.chunk.js",
-    "main.js.map": "/philosophiebakery/static/js/main.fc19533a.chunk.js.map",
+    "main.css": "/philosophiebakery/static/css/main.ad7ad0c2.chunk.css",
+    "main.js": "/philosophiebakery/static/js/main.a7fac615.chunk.js",
+    "main.js.map": "/philosophiebakery/static/js/main.a7fac615.chunk.js.map",
     "runtime-main.js": "/philosophiebakery/static/js/runtime-main.5d154c07.js",
     "runtime-main.js.map": "/philosophiebakery/static/js/runtime-main.5d154c07.js.map",
-    "static/js/2.3706f26b.chunk.js": "/philosophiebakery/static/js/2.3706f26b.chunk.js",
-    "static/js/2.3706f26b.chunk.js.map": "/philosophiebakery/static/js/2.3706f26b.chunk.js.map",
+    "static/js/2.2f7f06d1.chunk.js": "/philosophiebakery/static/js/2.2f7f06d1.chunk.js",
+    "static/js/2.2f7f06d1.chunk.js.map": "/philosophiebakery/static/js/2.2f7f06d1.chunk.js.map",
     "index.html": "/philosophiebakery/index.html",
-    "precache-manifest.376b215a05e0c6627d951dd56aa355de.js": "/philosophiebakery/precache-manifest.376b215a05e0c6627d951dd56aa355de.js",
+    "precache-manifest.233bd91a4c5dc400c45c91867dfa6e5e.js": "/philosophiebakery/precache-manifest.233bd91a4c5dc400c45c91867dfa6e5e.js",
     "service-worker.js": "/philosophiebakery/service-worker.js",
-    "static/css/main.15dd56cc.chunk.css.map": "/philosophiebakery/static/css/main.15dd56cc.chunk.css.map",
-    "static/js/2.3706f26b.chunk.js.LICENSE": "/philosophiebakery/static/js/2.3706f26b.chunk.js.LICENSE",
+    "static/css/main.ad7ad0c2.chunk.css.map": "/philosophiebakery/static/css/main.ad7ad0c2.chunk.css.map",
+    "static/js/2.2f7f06d1.chunk.js.LICENSE": "/philosophiebakery/static/js/2.2f7f06d1.chunk.js.LICENSE",
     "static/media/index.css": "/philosophiebakery/static/media/NeutraText-Book.cf9277dc.otf",
-    "static/media/NeutraText-Book.ttf": "/philosophiebakery/static/media/NeutraText-Book.cc211c16.ttf",
+    "static/media/bakery_cake_logo.png": "/philosophiebakery/static/media/bakery_cake_logo.fe037841.png",
     "static/media/full_orange_spread.jpg": "/philosophiebakery/static/media/full_orange_spread.a34d9571.jpg",
     "static/media/german_chocolate_pecan_cake.jpg": "/philosophiebakery/static/media/german_chocolate_pecan_cake.cfd27ddd.jpg",
     "static/media/golden_wedding_cake.jpg": "/philosophiebakery/static/media/golden_wedding_cake.44f924c6.jpg",
-    "static/media/lotr_cookies.jpg": "/philosophiebakery/static/media/lotr_cookies.9a21185e.jpg",
     "static/media/pride_cookies.jpg": "/philosophiebakery/static/media/pride_cookies.a900e4f7.jpg",
     "static/media/pumpkin_pie_placeholders.jpg": "/philosophiebakery/static/media/pumpkin_pie_placeholders.d852ee29.jpg",
     "static/media/wedding_cake_flavor_cupcakes.jpg": "/philosophiebakery/static/media/wedding_cake_flavor_cupcakes.1c3cac6c.jpg",
-    "static/media/yellow_cake.jpg": "/philosophiebakery/static/media/yellow_cake.f3a38f31.jpg"
+    "static/media/yellow_cake.jpg": "/philosophiebakery/static/media/yellow_cake.1fa54086.jpg",
+    "static/media/yellow_cake_large.jpg": "/philosophiebakery/static/media/yellow_cake_large.f3a38f31.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5d154c07.js",
-    "static/js/2.3706f26b.chunk.js",
-    "static/css/main.15dd56cc.chunk.css",
-    "static/js/main.fc19533a.chunk.js"
+    "static/js/2.2f7f06d1.chunk.js",
+    "static/css/main.ad7ad0c2.chunk.css",
+    "static/js/main.a7fac615.chunk.js"
   ]
 }
