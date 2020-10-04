@@ -5,36 +5,36 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Tab,
   Tabs,
   Hidden,
   Menu,
   MenuItem,
-  Box,
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import CakeLogo from "../../images/bakery_cake_logo.png";
+import TextLogo from "../../images/logo/white/text_logo.png";
 
 const useStyles = makeStyles((theme) => ({
   menu: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "5px",
-    height: "100px",
+    paddingLeft: "10px",
+    paddingRight: "10px",
+    //height: "100px",
   },
-  logo: {
-    backgroundColor: "#e8e9eb",
-  },
-  logoText: {
-    textTransform: "uppercase",
+  tabs: {
+    display: "flex",
+    flexGrow: 1,
+    maxWidth: "70%",
   },
   menuTab: {
-    minWidth: "0px",
+    //minWidth: "0px",
+    flexGrow: 1,
+    color: theme.palette.secondary.light,
     marginRight: "10px",
-    fontSize: "1.3rem",
+    fontSize: "1.2rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1rem",
     },
@@ -42,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
   menuItem: {
     minWidth: "0px",
     marginRight: "10px",
-    fontSize: "20px",
+    fontSize: "1.3rem",
+  },
+  tabIndicator: {
+    backgroundColor: theme.palette.secondary.light,
   },
 }));
 
@@ -54,7 +57,7 @@ const options = [
   //{ path: "/events", title: "Events" },
   //{ path: "/story", title: "Story" },
   //{ path: "/order", title: "Order" },
-  // { path: "/contact-us", title: "Contact Us" },
+  { path: "/contact-us", title: "Contact" },
 ];
 
 export const Header = () => {
@@ -73,33 +76,16 @@ export const Header = () => {
   };
 
   return (
-    <AppBar>
+    <AppBar elevation={2}>
       <Toolbar classes={{ root: classes.menu }}>
-        <Box
-          display="flex"
-          classes={{ root: classes.logo }}
-          justifyContent="center"
-          alignItems="center"
-          height="150px"
-          width="150px"
-          borderRadius="50%"
-          borderColor="primary.dark"
-          border={1}
-        >
-          <img
-            src={CakeLogo}
-            alt="Philosophie Bakery"
-            style={{
-              height: "100px",
-              objectFit: "scaled-down",
-            }}
-          />
-        </Box>
-        <Hidden xsDown={true}>
-          <Typography variant="h4" classes={{ root: classes.logoText }}>
-            Philosophie Bakery
-          </Typography>
-        </Hidden>
+        <img
+          src={TextLogo}
+          alt="Philosophie Bakery"
+          style={{
+            objectFit: "scale-down",
+            height: "70px",
+          }}
+        />
 
         <Hidden smDown={true}>
           <Tabs
@@ -107,6 +93,7 @@ export const Header = () => {
             onChange={(event, value) => {
               setSelectedTab(value);
             }}
+            classes={{ root: classes.tabs, indicator: classes.tabIndicator }}
           >
             {options.map((option) => {
               return (

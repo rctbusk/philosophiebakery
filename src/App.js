@@ -1,7 +1,7 @@
 import React from "react";
 
 import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider, Toolbar, Box } from "@material-ui/core";
+import { ThemeProvider, Box, Toolbar } from "@material-ui/core";
 import { Header } from "./components/Header/Header";
 import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
@@ -16,12 +16,12 @@ const theme = createMuiTheme({
     primary: {
       main: "#B4B4DA",
       light: "#e6e6ff",
-      dark: "#8484a8",
+      dark: "#8585c9",
     },
     secondary: {
-      main: "#d6d6d6",
+      main: "#ffffff",
       light: "#ffffff",
-      dark: "#a5a5a5",
+      dark: "#ffffff",
     },
     logo: {
       main: "#e8e9eb",
@@ -46,6 +46,16 @@ const theme = createMuiTheme({
           fontSize: "1.5rem",
         },
       },
+      h3: {
+        [defaultTheme.breakpoints.down("md")]: {
+          fontSize: "2.2rem",
+        },
+      },
+    },
+    MuiAppBar: {
+      root: {
+        boxShadow: "0px",
+      },
     },
   },
 });
@@ -55,14 +65,8 @@ export const App = () => {
     <div style={{ height: "100%" }}>
       <ThemeProvider theme={theme}>
         <Header />
-        <Box
-          mt={2}
-          mb={2}
-          pt="115px"
-          bgcolor="secondary.main"
-          height="100%"
-          overflow="visible"
-        >
+        <Toolbar />
+        <Box bgcolor="secondary.light" height="100%" overflow="visible">
           <Switch>
             <Route path="/cookies">
               <Cookies />
@@ -85,5 +89,3 @@ export const App = () => {
     </div>
   );
 };
-
-export default App;

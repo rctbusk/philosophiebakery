@@ -18,14 +18,34 @@
 
 import GermanChocolateCake from "../../images/cakes/german_chocolate_pecan_cake.jpg";
 import YellowCake from "../../images/cakes/yellow_cake.jpg";
+import StrawberryCake from "../../images/cakes/strawberry_cake.jpg";
 import YellowCakeLarge from "../../images/cakes/yellow_cake_large.jpg";
 import SeasonalTreats from "../../images/cakes/pumpkin_pie_placeholders.jpg";
-import BabyShowerSpread from "../../images/full-spread/full_orange_spread.jpg";
-import GoldWeddingCake from "../../images/weddings/golden_wedding_cake.jpg";
-import WeddingTasting from "../../images/weddings/wedding_cake_flavor_cupcakes.jpg";
+import PatrioticCake from "../../images/cakes/patriotic_oreo_cake.jpg";
+import WhiteBlueWeddingCake from "../../images/weddings/light_blue_to_white_weeding_cake.jpg";
 import PrideCookies from "../../images/cookies/pride_cookies.jpg";
+import EasterCookies from "../../images/cookies/easter_cookies.jpg";
 
 export const imageData = [
+  {
+    img: EasterCookies,
+    title: "Cakes",
+    cols: 1,
+    rows: 1,
+  },
+  {
+    img: WhiteBlueWeddingCake,
+    title: "Weddings",
+    cols: 2,
+    rows: 2,
+  },
+  {
+    img: SeasonalTreats,
+    title: "Seasonal Treats",
+    cols: 1,
+    rows: 1,
+  },
+
   {
     img: GermanChocolateCake,
     title: "Cakes",
@@ -33,10 +53,10 @@ export const imageData = [
     rows: 2,
   },
   {
-    img: GoldWeddingCake,
-    title: "Weddings",
-    cols: 2,
-    rows: 2,
+    img: PrideCookies,
+    title: "Cookies",
+    cols: 1,
+    rows: 1,
   },
 
   {
@@ -46,29 +66,5 @@ export const imageData = [
     cols: 1,
     rows: 1,
     largeRows: 2,
-  },
-  {
-    img: PrideCookies,
-    title: "Cookies",
-    cols: 1,
-    rows: 1,
-  },
-  {
-    img: WeddingTasting,
-    title: "Cake Tastings",
-    cols: 1,
-    rows: 1,
-  },
-  {
-    img: SeasonalTreats,
-    title: "Seasonal Treats",
-    cols: 1,
-    rows: 1,
-  },
-  {
-    img: BabyShowerSpread,
-    title: "Event Catering",
-    cols: 2,
-    rows: 1,
   },
 ];
