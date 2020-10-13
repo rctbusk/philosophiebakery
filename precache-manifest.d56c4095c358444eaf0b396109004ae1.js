@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6fc9c1f99b11e3a58609523480f2c44e",
+    "revision": "eb4bfc13c31a127f1060698d5ffd5205",
     "url": "/index.html"
   },
   {
-    "revision": "db2f3f5c1056ffcdef27",
+    "revision": "a45a891cba4297f15016",
     "url": "/static/css/main.4441dbea.chunk.css"
   },
   {
-    "revision": "5e6af0681fd4fd305610",
-    "url": "/static/js/2.4c50a610.chunk.js"
+    "revision": "1d08d6ac4324bbe8dd5e",
+    "url": "/static/js/2.90e5771e.chunk.js"
   },
   {
-    "revision": "fff33cd2b50e190fa354108153a8c2ae",
-    "url": "/static/js/2.4c50a610.chunk.js.LICENSE"
+    "revision": "1039852b88a9bb78a459b020bdc83881",
+    "url": "/static/js/2.90e5771e.chunk.js.LICENSE"
   },
   {
-    "revision": "db2f3f5c1056ffcdef27",
-    "url": "/static/js/main.13866844.chunk.js"
+    "revision": "a45a891cba4297f15016",
+    "url": "/static/js/main.c2af37dd.chunk.js"
   },
   {
     "revision": "a5ac8ec9bb814639f7ae",
@@ -36,16 +36,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/easter_cookies.2e876aab.jpg"
   },
   {
+    "revision": "a34d9571d28fb10dc3734e652d1ad3f4",
+    "url": "/static/media/full_orange_spread.a34d9571.jpg"
+  },
+  {
     "revision": "cfd27dddc37c12743d161aba06a44510",
     "url": "/static/media/german_chocolate_pecan_cake.cfd27ddd.jpg"
   },
   {
     "revision": "bae814806d4c6f7694c1e7b4e57f8c20",
     "url": "/static/media/light_blue_to_white_weeding_cake.bae81480.jpg"
-  },
-  {
-    "revision": "d5d686146a0c049501f46346b459950c",
-    "url": "/static/media/patriotic_oreo_cake.d5d68614.jpg"
   },
   {
     "revision": "a900e4f7e9817e85ef6cf276253550c5",
@@ -58,10 +58,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "eba374a7af8a1478daad96fad1e37041",
     "url": "/static/media/secondary_logo.eba374a7.png"
-  },
-  {
-    "revision": "189197ab948694b7d7fc22a6e1089e78",
-    "url": "/static/media/strawberry_cake.189197ab.jpg"
   },
   {
     "revision": "8eee9d806fd07bbe090f3e0eaa513dd9",
