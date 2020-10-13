@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     //height: "100px",
   },
   tabs: {
-    display: "flex",
-    flexGrow: 1,
+    // display: "flex",
+    //flexGrow: 1,
     maxWidth: "70%",
   },
   menuTab: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: theme.palette.secondary.light,
     marginRight: "10px",
-    fontSize: "1.2rem",
+    fontSize: "1.1rem",
     [theme.breakpoints.down("md")]: {
       fontSize: "1rem",
     },
@@ -78,14 +78,16 @@ export const Header = () => {
   return (
     <AppBar elevation={2}>
       <Toolbar classes={{ root: classes.menu }}>
-        <img
-          src={TextLogo}
-          alt="Philosophie Bakery"
-          style={{
-            objectFit: "scale-down",
-            height: "70px",
-          }}
-        />
+        <Link to="/">
+          <img
+            src={TextLogo}
+            alt="Philosophie Bakery"
+            style={{
+              objectFit: "scale-down",
+              height: "70px",
+            }}
+          />
+        </Link>
 
         <Hidden smDown={true}>
           <Tabs

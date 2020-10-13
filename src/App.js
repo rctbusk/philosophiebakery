@@ -5,6 +5,7 @@ import { ThemeProvider, Box, Toolbar } from "@material-ui/core";
 import { Header } from "./components/Header/Header";
 import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
+import { Helmet } from "react-helmet";
 import { Cookies } from "./components/Cookies/Cookies";
 import { Cakes } from "./components/Cakes/Cakes";
 import { Weddings } from "./components/Weddings/Weddings";
@@ -64,6 +65,15 @@ export const App = () => {
   return (
     <div style={{ height: "100%" }}>
       <ThemeProvider theme={theme}>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Philosophie Bakery</title>
+          <meta
+            name="description"
+            content="A family run bakery in the Greater Detroit Area. We specialize in Custom Cakes, Cookies, and Weddings!"
+          />
+          <link rel="canonical" href="https://philosophiebakery.com" />
+        </Helmet>
         <Header />
         <Toolbar />
         <Box bgcolor="secondary.light" height="100%" overflow="visible">

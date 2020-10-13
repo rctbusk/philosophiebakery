@@ -3,6 +3,7 @@ import { ImageGrid } from "../ImageGrid/ImageGrid";
 import { imageData } from "./ImageData";
 import { Box, CardMedia, Typography, Card, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
 import WeddingTasting from "../../images/weddings/wedding_cake_flavor_cupcakes.jpg";
 import SecondaryLogo from "../../images/logo/white/secondary_logo.png";
 
@@ -10,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
   logoBox: {
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      paddingRight: theme.spacing(6),
-      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(4),
+      paddingLeft: theme.spacing(4),
       paddingBottom: theme.spacing(2),
     },
     [theme.breakpoints.only("md")]: {
