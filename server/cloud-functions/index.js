@@ -9,7 +9,7 @@
 // Instead, we can use the 'busboy' library from NPM to parse these requests.
 const Busboy = require("busboy");
 
-exports.uploadFile = (req, res) => {
+exports.formSubmit = (req, res) => {
   if (req.method !== "POST") {
     // Return a "method not allowed" error
     return res.status(405).end();
