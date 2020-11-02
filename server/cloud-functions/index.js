@@ -30,7 +30,5 @@ exports.formSubmit = (req, res) => {
 
   // Triggered once all uploaded files are processed by Busboy.
   // We still need to wait for the disk writes (saves) to complete.
-  busboy.on("finish", async () => {
-    res.send(`${JSON.stringify(fields)}`);
-  });
+  res.send(`${JSON.stringify(fields)}`);
 };

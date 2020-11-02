@@ -9,12 +9,12 @@ import {
   Typography,
   MenuItem,
   Grid,
-  TextareaAutosize,
   Button,
 } from "@material-ui/core";
 import { Page } from "../Page/Page";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { makeStyles } from "@material-ui/core/styles";
+import { useFormSubmit } from "../../hooks/useFormSubmit";
 
 import OrangeSpread from "../../images/full-spread/full_orange_spread.jpg";
 
@@ -53,7 +53,30 @@ const contactPreferences = [
 ];
 
 export const ContactUs = () => {
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState(null);
+  const [contactPreference, setContactPreference] = React.useState(null);
+  const [subject, setSubject] = React.useState("");
+  const [body, setBody] = React.useState("");
+
+  const [{ data }, execute] = useFormSubmit(
+    "https://us-central1-philosophie-bakery.cloudfunctions.net/contact-us"
+  );
   const classes = useStyles();
+
+  const onSubmit = React.useCallback(() => {
+    const formData = new FormData();
+
+    formData.append("name", `${firstName} ${lastName}`);
+
+    execute({ data: formData });
+  }, [execute, firstName, lastName]);
+
+  React.useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   return (
     <Page title="Contact Us">
@@ -88,7 +111,7 @@ export const ContactUs = () => {
               autoComplete="off"
               style={{ width: "100%", height: "100%" }}
               onSubmit={() => {
-                console.log("hi");
+                onSubmit();
               }}
             >
               <Grid
@@ -108,6 +131,7 @@ export const ContactUs = () => {
                   <TextField
                     id="first-name"
                     required={true}
+                    onChange={setFirstName}
                     label="First Name"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
@@ -117,6 +141,7 @@ export const ContactUs = () => {
                   <TextField
                     id="last-name"
                     required={true}
+                    onChange={setLastName}
                     label="Last Name"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
@@ -206,7 +231,14 @@ export const ContactUs = () => {
                   justify="flex-end"
                   alignContent="flex-end"
                 >
-                  <Button variant="contained" color="primary" size="large">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    onClick={() => {
+                      onSubmit();
+                    }}
+                  >
                     Submit
                   </Button>
                 </Grid>
