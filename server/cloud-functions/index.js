@@ -17,6 +17,8 @@ exports.formSubmit = (req, res) => {
 
   res.set("Access-Control-Allow-Origin", "*");
 
+  console.log(req);
+
   const busboy = new Busboy({ headers: req.headers });
 
   // This object will accumulate all the fields, keyed by their name
@@ -33,5 +35,8 @@ exports.formSubmit = (req, res) => {
 
   // Triggered once all uploaded files are processed by Busboy.
   // We still need to wait for the disk writes (saves) to complete.
-  res.send(`${JSON.stringify(fields)}`);
+  busboy.on("finish", () => {
+    console.log("Done parsing form!");
+    res.send(`${JSON.stringify(fields)}`);
+  });
 };
