@@ -27,7 +27,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy-contact-us": "gcloud functions deploy contact-us --source https://source.developers.google.com/projects/philosophie-bakery/repos/github_rctbusk_philosophiebakery/moveable-aliases/master/paths/server/cloud-functions"
   },
   "eslintConfig": {
     "extends": "react-app"

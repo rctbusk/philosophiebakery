@@ -100,6 +100,7 @@ export const Header = () => {
             {options.map((option) => {
               return (
                 <Tab
+                  key={option.path}
                   to={option.path}
                   value={option.path}
                   component={Link}
@@ -125,6 +126,7 @@ export const Header = () => {
             {options.map((option) => {
               return (
                 <MenuItem
+                  key={option.path}
                   component={Link}
                   to={option.path}
                   classes={{ root: classes.menuItem }}

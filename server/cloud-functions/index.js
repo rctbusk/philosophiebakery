@@ -14,6 +14,9 @@ exports.formSubmit = (req, res) => {
     // Return a "method not allowed" error
     return res.status(405).end();
   }
+
+  res.set("Access-Control-Allow-Origin", "*");
+
   const busboy = new Busboy({ headers: req.headers });
 
   // This object will accumulate all the fields, keyed by their name
