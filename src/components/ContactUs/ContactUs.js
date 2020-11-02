@@ -70,9 +70,23 @@ export const ContactUs = () => {
     console.log(firstName);
 
     formData.append("name", `${firstName} ${lastName}`);
+    formData.append("email", email);
+    formData.append("number", phoneNumber);
+    formData.append("preference", contactPreference);
+    formData.append("subject", subject);
+    formData.append("body", body);
 
     execute({ data: formData });
-  }, [execute, firstName, lastName]);
+  }, [
+    body,
+    contactPreference,
+    email,
+    execute,
+    firstName,
+    lastName,
+    phoneNumber,
+    subject,
+  ]);
 
   React.useEffect(() => {
     console.log(data);
@@ -131,6 +145,7 @@ export const ContactUs = () => {
                   <TextField
                     id="first-name"
                     required={true}
+                    value={firstName}
                     onChange={(event) => {
                       setFirstName(event.target.value);
                     }}
@@ -143,6 +158,7 @@ export const ContactUs = () => {
                   <TextField
                     id="last-name"
                     required={true}
+                    value={lastName}
                     onChange={(event) => {
                       setLastName(event.target.value);
                     }}
@@ -159,6 +175,10 @@ export const ContactUs = () => {
                     label="Email"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
                   />
                 </Grid>
 
@@ -173,6 +193,10 @@ export const ContactUs = () => {
                     disableCountryCode={true}
                     disableDropdown={true}
                     required={true}
+                    value={phoneNumber}
+                    onChange={(event) => {
+                      setPhoneNumber(event.target.value);
+                    }}
                     inputClass={classes.formInputs}
                     classes={{ nativeRoot: classes.formInputs }}
                   />
@@ -188,6 +212,9 @@ export const ContactUs = () => {
                     // onChange={handleChange}
                     classes={{ root: classes.formInputs }}
                     value={contactPreference}
+                    onChange={(event) => {
+                      setContactPreference(event.target.value);
+                    }}
                   >
                     {contactPreferences.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -209,6 +236,9 @@ export const ContactUs = () => {
                     classes={{ root: classes.formInputs }}
                     helperText="Please select why you are contacting"
                     value={subject}
+                    onChange={(event) => {
+                      setSubject(event.target.value);
+                    }}
                   >
                     {orderTopics.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -228,6 +258,10 @@ export const ContactUs = () => {
                     variant="outlined"
                     placeholder="Please provide more details of why you are contacting :)"
                     classes={{ root: classes.formInputs }}
+                    value={body}
+                    onChange={(event) => {
+                      setBody(event.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid
