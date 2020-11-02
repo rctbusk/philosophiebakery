@@ -28,7 +28,8 @@
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
-    "deploy-contact-us": "gcloud functions deploy contact-us --source https://source.developers.google.com/projects/philosophie-bakery/repos/github_rctbusk_philosophiebakery/moveable-aliases/master/paths/server/cloud-functions"
+    "deploy-contact-us": "gcloud functions deploy contact-us --source https://source.developers.google.com/projects/philosophie-bakery/repos/github_rctbusk_philosophiebakery/moveable-aliases/master/paths/server/cloud-functions",
+    "start-server": "functions-framework --source='server/cloud-functions' --target=formSubmit"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.7.1"
   }
 }

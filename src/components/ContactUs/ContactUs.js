@@ -61,9 +61,7 @@ export const ContactUs = () => {
   const [subject, setSubject] = React.useState("");
   const [body, setBody] = React.useState("");
 
-  const [{ data }, execute] = useFormSubmit(
-    "https://us-central1-philosophie-bakery.cloudfunctions.net/contact-us"
-  );
+  const [{ data }, execute] = useFormSubmit("/contact-us");
   const classes = useStyles();
 
   const onSubmit = React.useCallback(() => {

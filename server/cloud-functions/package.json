@@ -1,8 +1,0 @@
-{
-    "name": "cloud-functions",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "busboy": "^0.3.1"
-    }
-}
