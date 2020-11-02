@@ -194,8 +194,8 @@ export const ContactUs = () => {
                     disableDropdown={true}
                     required={true}
                     value={phoneNumber}
-                    onChange={(event) => {
-                      setPhoneNumber(event.target.value);
+                    onChange={(value) => {
+                      setPhoneNumber(value);
                     }}
                     inputClass={classes.formInputs}
                     classes={{ nativeRoot: classes.formInputs }}
