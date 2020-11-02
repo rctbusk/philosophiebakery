@@ -5,13 +5,11 @@
     "lint": "eslint .",
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "start": "yarn shell",
+    "deploy": "yarn install && firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
-  "engines": {
-    "node": "12"
-  },
+  "runtime": "nodejs10",
   "main": "index.js",
   "dependencies": {
     "firebase-admin": "^9.2.0",

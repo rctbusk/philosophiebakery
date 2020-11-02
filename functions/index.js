@@ -1,3 +1,10 @@
+// The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
+const functions = require("firebase-functions");
+
+// The Firebase Admin SDK to access Cloud Firestore.
+const admin = require("firebase-admin");
+admin.initializeApp();
+
 /**
  * Parses a 'multipart/form-data' upload request
  *
@@ -9,7 +16,7 @@
 // Instead, we can use the 'busboy' library from NPM to parse these requests.
 const Busboy = require("busboy");
 
-exports.formSubmit = (req, res) => {
+exports.formSubmit = functions.https.onRequest((req, res) => {
   if (req.method !== "POST") {
     // Return a "method not allowed" error
     return res.status(405).end();
@@ -39,4 +46,4 @@ exports.formSubmit = (req, res) => {
     console.log("Done parsing form!");
     res.send(`${JSON.stringify(fields)}`);
   });
-};
+});
