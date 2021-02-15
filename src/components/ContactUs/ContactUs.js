@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Box,
   CardMedia,
@@ -15,6 +13,7 @@ import { Page } from "../Page/Page";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { makeStyles } from "@material-ui/core/styles";
 import { useFormSubmit } from "../../hooks/useFormSubmit";
+import { useState, useCallback, useEffect } from "react";
 
 import OrangeSpread from "../../images/full-spread/full_orange_spread.jpg";
 
@@ -53,18 +52,18 @@ const contactPreferences = [
 ];
 
 export const ContactUs = () => {
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [contactPreference, setContactPreference] = React.useState("");
-  const [subject, setSubject] = React.useState("");
-  const [body, setBody] = React.useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [contactPreference, setContactPreference] = useState("");
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
 
-  const [{ data }, execute] = useFormSubmit("/contact-us");
+  const [{ data }, execute] = useFormSubmit("/api/contact-us");
   const classes = useStyles();
 
-  const onSubmit = React.useCallback(() => {
+  const onSubmit = useCallback(() => {
     const formData = new FormData();
 
     console.log(firstName);
@@ -88,7 +87,7 @@ export const ContactUs = () => {
     subject,
   ]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(data);
   }, [data]);
 
@@ -194,8 +193,8 @@ export const ContactUs = () => {
                     disableDropdown={true}
                     required={true}
                     value={phoneNumber}
-                    onChange={(event) => {
-                      setPhoneNumber(event.target.value);
+                    onChange={(value) => {
+                      setPhoneNumber(value);
                     }}
                     inputClass={classes.formInputs}
                     classes={{ nativeRoot: classes.formInputs }}

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider, Box, Toolbar } from "@material-ui/core";
 import { Header } from "./components/Header/Header";
@@ -7,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import { Home } from "./components/Home/Home";
 import { Helmet } from "react-helmet";
 import { Cookies } from "./components/Cookies/Cookies";
+import { Order } from "./components/Order/Order";
 import { Cakes } from "./components/Cakes/Cakes";
 import { Weddings } from "./components/Weddings/Weddings";
 import { ContactUs } from "./components/ContactUs/ContactUs";
@@ -89,6 +88,9 @@ export const App = () => {
             </Route>
             <Route path="/contact-us">
               <ContactUs />
+            </Route>
+            <Route path="/order">
+              <Order />
             </Route>
             <Route path="/">
               <Home />
