@@ -7,6 +7,7 @@ import {
   GridListTileBar,
   useMediaQuery,
 } from "@material-ui/core";
+import { useMemo } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,7 +71,7 @@ export const ImageGrid = (props) => {
   const isLargeWidth = useMediaQuery(theme.breakpoints.up("lg"));
   const isMediumWidth = useMediaQuery(theme.breakpoints.between("sm", "lg"));
 
-  const numberOfCols = React.useMemo(() => {
+  const numberOfCols = useMemo(() => {
     if (isLargeWidth) {
       return largeColumns;
     } else if (isMediumWidth) {
