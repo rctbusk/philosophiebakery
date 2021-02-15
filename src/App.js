@@ -72,11 +72,6 @@ export const App = () => {
             content="A family run bakery in the Greater Detroit Area. We specialize in Custom Cakes, Cookies, and Weddings!"
           />
           <link rel="canonical" href="https://philosophiebakery.com" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="%PUBLIC_URL%/logo.png"
-          />
         </Helmet>
         <Header />
         <Toolbar />
