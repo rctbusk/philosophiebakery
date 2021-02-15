@@ -1,4 +1,3 @@
-import React from "react";
 import { ImageGrid } from "../ImageGrid/ImageGrid";
 import { imageData } from "./ImageData";
 import { Box, CardMedia, Typography, Card, Button } from "@material-ui/core";

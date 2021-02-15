@@ -1,5 +1,3 @@
-import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -14,6 +12,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import TextLogo from "../../images/logo/white/text_logo.png";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   menu: {
@@ -63,10 +62,10 @@ const options = [
 
 export const Header = () => {
   let location = useLocation();
-  const [selectedTab, setSelectedTab] = React.useState(location.pathname);
+  const [selectedTab, setSelectedTab] = useState(location.pathname);
   const classes = useStyles();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

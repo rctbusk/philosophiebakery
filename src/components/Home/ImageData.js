@@ -1,21 +1,3 @@
-/**
- * The example data is structured as follows:
- *
- * import image from 'path/to/image.jpg';
- * [etc...]
- *
- * const tileData = [
- *   {
- *     img: image,
- *     title: 'Image',
- *     featured: true,
- *   },
- *   {
- *     [etc...]
- *   },
- * ];
- */
-
 import GermanChocolateCake from "../../images/cakes/german_chocolate_pecan_cake.jpg";
 import YellowCake from "../../images/cakes/yellow_cake.jpg";
 import YellowCakeLarge from "../../images/cakes/yellow_cake_large.jpg";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider, Box, Toolbar } from "@material-ui/core";
 import { Header } from "./components/Header/Header";
