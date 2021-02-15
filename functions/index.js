@@ -1,10 +1,6 @@
 // The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
 const functions = require("firebase-functions");
 
-// The Firebase Admin SDK to access Cloud Firestore.
-const admin = require("firebase-admin");
-admin.initializeApp();
-
 /**
  * Parses a 'multipart/form-data' upload request
  *
@@ -24,8 +20,6 @@ exports.formSubmit = functions.https.onRequest((req, res) => {
 
   res.set("Access-Control-Allow-Origin", "*");
 
-  console.log(req);
-
   const busboy = new Busboy({ headers: req.headers });
 
   // This object will accumulate all the fields, keyed by their name
@@ -40,10 +34,13 @@ exports.formSubmit = functions.https.onRequest((req, res) => {
     fields[fieldname] = val;
   });
 
-  // Triggered once all uploaded files are processed by Busboy.
-  // We still need to wait for the disk writes (saves) to complete.
   busboy.on("finish", () => {
-    console.log("Done parsing form!");
     res.send(`${JSON.stringify(fields)}`);
   });
+
+  if (req.rawBody) {
+    busboy.end(req.rawBody);
+  } else {
+    req.pipe(busboy);
+  }
 });
