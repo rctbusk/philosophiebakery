@@ -51,13 +51,14 @@ const useStyles = makeStyles((theme) => ({
 
 const options = [
   { path: "/", title: "Home" },
-  { path: "/cakes", title: "Cakes" },
-  { path: "/cookies", title: "Cookies" },
-  { path: "/weddings", title: "Weddings" },
+  //{ path: "/cakes", title: "Cakes" },
+  //{ path: "/cookies", title: "Cookies" },
+  //{ path: "/weddings", title: "Weddings" },
   //{ path: "/events", title: "Events" },
   //{ path: "/story", title: "Story" },
   //{ path: "/order", title: "Order" },
-  { path: "/contact-us", title: "Contact" },
+  //{ path: "/contact-us", title: "Contact" },
+  { path: "/order", title: "Order" },
 ];
 
 export const Header = () => {
