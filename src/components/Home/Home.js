@@ -1,7 +1,7 @@
-import React from "react";
 import { ImageGrid } from "../ImageGrid/ImageGrid";
 import { imageData } from "./ImageData";
 import { Box, CardMedia, Typography, Card, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import WeddingTasting from "../../images/weddings/wedding_cake_flavor_cupcakes.jpg";
@@ -80,7 +80,12 @@ export const Home = () => {
           >
             Welcome to Philosophie Bakery
           </Typography>
-          <Button variant="outlined" classes={{ root: classes.button }}>
+          <Button
+            component={Link}
+            to="order"
+            variant="outlined"
+            classes={{ root: classes.button }}
+          >
             Order
           </Button>
         </Box>
