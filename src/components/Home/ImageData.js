@@ -46,7 +46,7 @@ export const imageData = [
 
   {
     img: GermanChocolateCake,
-    title: "Cakes",
+    title: "German Cakes",
     cols: 2,
     rows: 2,
   },
