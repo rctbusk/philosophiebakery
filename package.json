@@ -6,28 +6,30 @@
   "dependencies": {
     "@material-ui/core": "^4.8.0",
     "@material-ui/icons": "^4.5.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.21.0",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^12.7.1",
+    "axios": "^0.21.1",
     "axios-hooks": "^2.1.0",
     "gh-pages": "^3.1.0",
     "material-ui-phone-number": "^2.2.6",
-    "node-sass": "^4.13.1",
+    "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false yarn install && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "deploy-contact-us": "gcloud functions deploy contact-us --source https://source.developers.google.com/projects/philosophie-bakery/repos/github_rctbusk_philosophiebakery/moveable-aliases/master/paths/server/cloud-functions",
+    "start-server": "functions-framework --source='server/cloud-functions' --target=formSubmit"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.7.1"
   }
 }

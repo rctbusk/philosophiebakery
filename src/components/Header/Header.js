@@ -1,5 +1,3 @@
-import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -14,6 +12,7 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import TextLogo from "../../images/logo/white/text_logo.png";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   menu: {
@@ -51,21 +50,22 @@ const useStyles = makeStyles((theme) => ({
 
 const options = [
   { path: "/", title: "Home" },
-  { path: "/cakes", title: "Cakes" },
-  { path: "/cookies", title: "Cookies" },
-  { path: "/weddings", title: "Weddings" },
+  //{ path: "/cakes", title: "Cakes" },
+  //{ path: "/cookies", title: "Cookies" },
+  //{ path: "/weddings", title: "Weddings" },
   //{ path: "/events", title: "Events" },
   //{ path: "/story", title: "Story" },
   //{ path: "/order", title: "Order" },
-  { path: "/contact-us", title: "Contact" },
+  //{ path: "/contact-us", title: "Contact" },
+  { path: "/order", title: "Order" },
 ];
 
 export const Header = () => {
   let location = useLocation();
-  const [selectedTab, setSelectedTab] = React.useState(location.pathname);
+  const [selectedTab, setSelectedTab] = useState(location.pathname);
   const classes = useStyles();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -100,6 +100,7 @@ export const Header = () => {
             {options.map((option) => {
               return (
                 <Tab
+                  key={option.path}
                   to={option.path}
                   value={option.path}
                   component={Link}
@@ -125,6 +126,7 @@ export const Header = () => {
             {options.map((option) => {
               return (
                 <MenuItem
+                  key={option.path}
                   component={Link}
                   to={option.path}
                   classes={{ root: classes.menuItem }}

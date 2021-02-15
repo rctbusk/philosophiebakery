@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Box,
   CardMedia,
@@ -15,6 +13,7 @@ import { Page } from "../Page/Page";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { makeStyles } from "@material-ui/core/styles";
 import { useFormSubmit } from "../../hooks/useFormSubmit";
+import { useState, useCallback, useEffect } from "react";
 
 import OrangeSpread from "../../images/full-spread/full_orange_spread.jpg";
 
@@ -53,28 +52,42 @@ const contactPreferences = [
 ];
 
 export const ContactUs = () => {
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState(null);
-  const [contactPreference, setContactPreference] = React.useState(null);
-  const [subject, setSubject] = React.useState("");
-  const [body, setBody] = React.useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [contactPreference, setContactPreference] = useState("");
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
 
-  const [{ data }, execute] = useFormSubmit(
-    "https://us-central1-philosophie-bakery.cloudfunctions.net/contact-us"
-  );
+  const [{ data }, execute] = useFormSubmit("/api/contact-us");
   const classes = useStyles();
 
-  const onSubmit = React.useCallback(() => {
+  const onSubmit = useCallback(() => {
     const formData = new FormData();
 
+    console.log(firstName);
+
     formData.append("name", `${firstName} ${lastName}`);
+    formData.append("email", email);
+    formData.append("number", phoneNumber);
+    formData.append("preference", contactPreference);
+    formData.append("subject", subject);
+    formData.append("body", body);
 
     execute({ data: formData });
-  }, [execute, firstName, lastName]);
+  }, [
+    body,
+    contactPreference,
+    email,
+    execute,
+    firstName,
+    lastName,
+    phoneNumber,
+    subject,
+  ]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(data);
   }, [data]);
 
@@ -119,7 +132,7 @@ export const ContactUs = () => {
                 width="100%"
                 height="100%"
                 display="flex"
-                flexDirection="column"
+                //flexDirection="column"
                 spacing={3}
                 //justifyContent="space-evenly"
               >
@@ -131,7 +144,10 @@ export const ContactUs = () => {
                   <TextField
                     id="first-name"
                     required={true}
-                    onChange={setFirstName}
+                    value={firstName}
+                    onChange={(event) => {
+                      setFirstName(event.target.value);
+                    }}
                     label="First Name"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
@@ -141,7 +157,10 @@ export const ContactUs = () => {
                   <TextField
                     id="last-name"
                     required={true}
-                    onChange={setLastName}
+                    value={lastName}
+                    onChange={(event) => {
+                      setLastName(event.target.value);
+                    }}
                     label="Last Name"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
@@ -155,6 +174,10 @@ export const ContactUs = () => {
                     label="Email"
                     variant="outlined"
                     classes={{ root: classes.formInputs }}
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
                   />
                 </Grid>
 
@@ -169,8 +192,12 @@ export const ContactUs = () => {
                     disableCountryCode={true}
                     disableDropdown={true}
                     required={true}
+                    value={phoneNumber}
+                    onChange={(value) => {
+                      setPhoneNumber(value);
+                    }}
                     inputClass={classes.formInputs}
-                    classes={{ root: classes.formInputs }}
+                    classes={{ nativeRoot: classes.formInputs }}
                   />
                 </Grid>
                 <Grid item={true} xs={12} md={6}>
@@ -183,6 +210,10 @@ export const ContactUs = () => {
                     // value={currency}
                     // onChange={handleChange}
                     classes={{ root: classes.formInputs }}
+                    value={contactPreference}
+                    onChange={(event) => {
+                      setContactPreference(event.target.value);
+                    }}
                   >
                     {contactPreferences.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -203,6 +234,10 @@ export const ContactUs = () => {
                     // onChange={handleChange}
                     classes={{ root: classes.formInputs }}
                     helperText="Please select why you are contacting"
+                    value={subject}
+                    onChange={(event) => {
+                      setSubject(event.target.value);
+                    }}
                   >
                     {orderTopics.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -222,6 +257,10 @@ export const ContactUs = () => {
                     variant="outlined"
                     placeholder="Please provide more details of why you are contacting :)"
                     classes={{ root: classes.formInputs }}
+                    value={body}
+                    onChange={(event) => {
+                      setBody(event.target.value);
+                    }}
                   />
                 </Grid>
                 <Grid

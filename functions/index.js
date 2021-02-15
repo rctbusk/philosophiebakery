@@ -1,3 +1,6 @@
+// The Cloud Functions for Firebase SDK to create Cloud Functions and setup triggers.
+const functions = require("firebase-functions");
+
 /**
  * Parses a 'multipart/form-data' upload request
  *
@@ -9,11 +12,14 @@
 // Instead, we can use the 'busboy' library from NPM to parse these requests.
 const Busboy = require("busboy");
 
-exports.formSubmit = (req, res) => {
+exports.formSubmit = functions.https.onRequest((req, res) => {
   if (req.method !== "POST") {
     // Return a "method not allowed" error
     return res.status(405).end();
   }
+
+  res.set("Access-Control-Allow-Origin", "*");
+
   const busboy = new Busboy({ headers: req.headers });
 
   // This object will accumulate all the fields, keyed by their name
@@ -28,7 +34,13 @@ exports.formSubmit = (req, res) => {
     fields[fieldname] = val;
   });
 
-  // Triggered once all uploaded files are processed by Busboy.
-  // We still need to wait for the disk writes (saves) to complete.
-  res.send(`${JSON.stringify(fields)}`);
-};
+  busboy.on("finish", () => {
+    res.send(`${JSON.stringify(fields)}`);
+  });
+
+  if (req.rawBody) {
+    busboy.end(req.rawBody);
+  } else {
+    req.pipe(busboy);
+  }
+});
